@@ -1,10 +1,4 @@
 <?php
-	/**
-	* 	ModelUser
-	* 	Representes a User Model.
-	* 	Author: Diogo Cezar <diogo@diogocezar.com>
-	*	Year: 2017
-	*/
 
 	namespace App\Models;
 

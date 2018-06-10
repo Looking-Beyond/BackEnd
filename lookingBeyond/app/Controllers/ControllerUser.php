@@ -1,11 +1,4 @@
 <?php
-	/**
-	* 	ModelUser
-	* 	Representes a User Controller.
-	* 	Author: Diogo Cezar <diogo@diogocezar.com>
-	*	Year: 2017
-	*/
-
 	namespace App\Controllers;
 
 	use App\Models;
