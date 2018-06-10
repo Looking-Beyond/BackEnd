@@ -5,24 +5,19 @@
 	$app  = new \Slim\Slim();
 	$user = new App\Controllers\ControllerUser();
 
-	
-	$app->get('/asdsa', function(){
-		echo "Página Inicial da API";
-	});
 
-
-	$app->get('/user', function(){
+	$app->get('/', function(){
 		global $user;
 		$user->index();
 
 	});
 
-	$app->get('/user/save', function(){
+	$app->get('/', function(){
 		global $user;
 		// os dados poderiam vir de um $_POST
 		$user_data = array(
-			'name'  => 'Diogo Cezar',
-			'email' => 'diogo@diogocezar.com'
+			'name'  => 'Raphael',
+			'email' => 'raphael@outlook.com'
 		);
 		$user->save($user_data);
 	});

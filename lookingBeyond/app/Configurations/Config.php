@@ -1,11 +1,4 @@
 <?php
-	/**
-	* 	Config
-	* 	Class to read json configurations and configure global configuration class.
-	* 	Author: Diogo Cezar <diogo@diogocezar.com>
-	*	Year: 2017
-	*/
-
 	namespace App\Configurations;
 
 	class Config{

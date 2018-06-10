@@ -1,10 +1,10 @@
 {
-    "name": "diogo/dctb-php-mvc-db",
+    "name": "lb",
     "description": "Just a simple repository with mvc pattern implemented in PHP.",
     "authors": [
         {
-            "name": "Diogo Cezar",
-            "email": "diogo@diogocezar.com"
+            "name": "LookingBeyond",
+            "email": "raphael@outlook.com"
         }
     ],
     "autoload": {

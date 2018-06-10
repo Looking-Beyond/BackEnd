@@ -1,11 +1,4 @@
 <?php
-	/**
-	* 	ModelUser
-	* 	Representes a View.
-	* 	Author: Diogo Cezar <diogo@diogocezar.com>
-	*	Year: 2017
-	*/
-
 	namespace App\Views;
 
 	class ViewUser{
