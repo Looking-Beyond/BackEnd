@@ -9,8 +9,8 @@
 			$twig     = new \Twig_Environment($loader, array('cache' => false));
 			$template = $twig->loadTemplate($html);
 			$values = array(
-				'title' => 'Usuários',
-				'users' => $data
+				'title' => 'Usuarios',
+				'candidatos' => $data
 			);
 			echo $template->render($values);
 		}

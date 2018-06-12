@@ -12,7 +12,7 @@
 			return DB::save('php_users', $data);
 		}
 		public function query($data){
-			return DB::sql("SELECT * FROM php_users WHERE id = :id", array('id' => $data['id']));
+			return DB::sql("SELECT * FROM candidato WHERE idCandidato = :id", array('id' => $data['id']));
 		}
 	}
 ?>

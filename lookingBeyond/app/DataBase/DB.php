@@ -120,7 +120,7 @@
 				die(DB::error("Os dados, ou tabela não estão preenchidos corretamente."));
 			}
 			$array = array();
-			if(empty($data['id'])){
+			if(empty($data['idCandidato'])){
 				foreach ($data as $key => $value){
 					if($value != "NOW()" && $value != "CURTIME()")
 	            		$insert[] = ':' . $key;
@@ -149,21 +149,21 @@
 				$values = array();
 				$set    = "";
 				foreach ($updates as $key => $value){
-					if($key != "id")
+					if($key != "idCandidato")
 						if($value != "NOW()" && $value != "CURTIME()")
 	    					$set .= ' '.$key.' = :'.$key.',';
 	    				else
 	    					$set .= ' '.$key.' = '.$value.',';
 				}
 				$set = rtrim($set, ',');
-				$sql = "UPDATE `".$table."` SET". $set ." WHERE id = :id_where";
+				$sql = "UPDATE `".$table."` SET". $set ." WHERE idCandidato = :id_where";
 				$rs = DB::$pdo->prepare($sql);
 				foreach ($data as $key => $value){
-					if($key != "id")
+					if($key != "idCandidato")
 						if($value != "NOW()" && $value != "CURTIME()")
 	            			$rs->bindValue(':' . $key, $value);
 				}
-				$rs->bindValue(':id_where', $data['id']);
+				$rs->bindValue(':id_where', $data['idCandidato']);
 				try{
 					$rs->execute();
 				}
@@ -173,7 +173,25 @@
 			}
 			return true;
 		}
+		/**
+		* Method to delete item
+		*/
+		public static function votar($id){
+			DB::checkConnection();
+			if(empty($id)){
+				die(DB::error("Os dados não estão preenchidos corretamente."));
+			}
+			$sql = "UPDATE voto SET qtd_voto = qtd_voto+1 WHERE idCandidato = ".$id;
+			$rs = DB::$pdo->prepare($sql);
 
+			try{
+				$rs->execute();
+			}
+			catch (PDOException $e) {
+				die(DB::error($e, $sql));
+			}
+
+		}
 		/**
 		* Method to delete item
 		*/
