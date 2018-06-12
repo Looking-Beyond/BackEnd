@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="author" content="Tomar guaraná">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="../templates/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../templates/assets/css/style.css" rel="stylesheet">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 </head>
@@ -14,11 +14,7 @@
     <header>
         <div class="row grid nav-border1 justify-content-between">
             <div class="col-md-6 col-sm-6 col-lg-6 grid-header">
-                <img src="./assets/imagens/logo_utfpr.jpg" class="img-resolution" alt="Detalhe"/>
-            </div>
-            <div class="col-md-6 col-sm-6 col-lg-6 grid-header">
-                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                <p>Usuário conectado</p>
+                <img src="../templates/assets/imagens/logo_utfpr.jpg" class="img-resolution" alt="Detalhe"/>
             </div>
         </div>    
     </header>
@@ -33,7 +29,7 @@
                         <a class="nav-link" href="/lookingBeyond/index.php/vote">Vote</a>
                     </li>
                     <li class="nav-item nav-border2">
-                        <a class="nav-link" href="./resultados.html">Resultado</a>
+                        <a class="nav-link" href="/lookingBeyond/index.php/resultados">Resultado</a>
                     </li>
                     <li class="nav-item nav-border2">
                         <a class="nav-link" href="http://portal.utfpr.edu.br" target="_blank">Portal UTFPR</a>
@@ -44,27 +40,18 @@
         <div class= "col-mid-9 row">
             <div class="col-md-6">
                 <div class="form-check">
+                    {% for voto in votos %}
                     <ul>
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
                         <label class="form-check-label" for="exampleRadios1">
-                        Candidato 1
+                        Candidato {{voto.idCandidato}}
+                        - Votos: {{voto.qtd_voto}}
                         </label>
                     </ul>
-                    <ul>
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                        Candidato 2
-                        </label>
-                    </ul>
-                    <ul>
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                        Candidato 3
-                        </label>
-                    </ul>
+                    {% endfor %}
                 </div>
             </div>
-            <div class="col-md-6" id="piechart"></div>
+           <div class="col-md-6" id="piechart"></div>
         </div>
 </div>
 
@@ -87,8 +74,8 @@
 </footer>
 
 
-<script type="text/javascript" src="./js/script.js"></script>
-
+<script type="text/javascript" src="../templates/js/script.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>     
 </body>
 </html>
 

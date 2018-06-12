@@ -6,15 +6,19 @@
 	$candidato = new App\Controllers\ControllerCandidato();
 	$vote = new App\Controllers\ControllerVote();
 	$user = new App\Controllers\ControllerUser();
+	$resultado = new App\Controllers\ControllerResultados();
 
-	$app->get('/tata', function(){
-		echo "Página Inicial API";
-	});
+	
 
 	$app->get('/', function(){
 		global $candidato;
 		$candidato->index();
 
+	});
+
+	$app->get('/resultados', function(){
+		global $resultado;
+		$resultado->index();	
 	});
 
 	$app->get('/vote', function(){
@@ -29,7 +33,7 @@
 		// os dados poderiam vir de um $_POST
 		//$id = substr($id, 6);
 		$vote->votar($paramValue);
-		$app->redirect('/lookingBeyond/index.php');
+		$app->redirect('/lookingBeyond/index.php/resultados');
 	});
 
 	$app->get('/user/:id', function($id){
