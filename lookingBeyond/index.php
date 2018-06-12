@@ -22,11 +22,14 @@
 		$vote->index();
 
 	});
-	$app->get('/vote/save/:id', function($id){
+	$app->get('/vote/save', function() use($app){
 		global $vote;
+		$paramValue = $app->request->get('idCandidato');
+		//$id = $app->request->post('idCandidato');
 		// os dados poderiam vir de um $_POST
 		//$id = substr($id, 6);
-		$vote->votar($id);
+		$vote->votar($paramValue);
+		$app->redirect('/lookingBeyond/index.php');
 	});
 
 	$app->get('/user/:id', function($id){
